@@ -80,3 +80,33 @@ for a, b in next, getgc() do
         end
     end
 end
+G.GetFunction = function(A)
+    for i,v in next, getgc() do
+        if type(v) == "function" and getinfo(v).name == A and islclosure(v) then
+            return v 
+        end
+    end
+end
+
+G.Teleport = function(A, B, Toggle)
+    if Toggle and A and B then
+        A.CFrame = B
+    end
+    return A, B, Toggle
+end
+
+G.DisableConnection = function(A)
+    for i,v in next, getconnections(A) do 
+        v:Disable()
+    end
+    return A
+end
+
+G.FireConnection = function(A)
+    for i,v in next, getconnections(A) do
+        v:Fire()
+    end
+end
+G.Mag = function(A, B)
+    return (A.Position - B.Position).Magnitude
+end
