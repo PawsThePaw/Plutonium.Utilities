@@ -773,9 +773,9 @@ function library:Introduction()
     xsx.BackgroundTransparency = 1.000
     xsx.Size = UDim2.new(0, 80, 0, 21)
     xsx.Font = Enum.Font.Code
-    xsx.Text = "Welcome To Cosmic.lua"
+    xsx.Text = "Cosmic"
     xsx.TextColor3 = Color3.fromRGB(124, 124, 124)
-    xsx.TextSize = 10.000
+    xsx.TextSize = 9.000
     xsx.TextTransparency = 1
     
     text.Name = "text"
@@ -785,9 +785,9 @@ function library:Introduction()
     text.Position = UDim2.new(0.912751675, 0, 0, 0)
     text.Size = UDim2.new(0, 26, 0, 21)
     text.Font = Enum.Font.Code
-    text.Text = "hash"
+    text.Text = "lua"
     text.TextColor3 = Color3.fromRGB(124, 124, 124)
-    text.TextSize = 10.000
+    text.TextSize = 9.000
     text.TextTransparency = 1
     text.RichText = true
     
@@ -879,20 +879,11 @@ function library:Init(key)
     edge.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
     edge.Position = UDim2.new(0.5, 0, 0.5, 0)
     edge.Size = UDim2.new(0, 594, 0, 406)
+local function ToggleUi()
+        screen.Enabled = not screen.Enabled
+end
     local UserInputService = game:GetService("UserInputService")
     local frame = edge
-UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
-        if input.KeyCode == KeyBind and not gameProcessedEvent then
-              eKeyPressed = true
-              togglePC()
-        end
-end)
-UserInputService.InputEnded:Connect(function(input, gameProcessedEvent)
-        if input.KeyCode == KeyBind then
-             eKeyPressed = false
-        end
-end)
-
 local function update(input)
         local delta = input.Position - dragStart
 		frame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
@@ -3608,3 +3599,5 @@ end)
     return TabLibrary
 end
 return library
+
+
